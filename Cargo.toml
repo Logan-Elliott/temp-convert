@@ -1,0 +1,7 @@
+[package]
+name = "temp-convert"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+meteo_tools = "1.1.0"
