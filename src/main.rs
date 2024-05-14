@@ -21,24 +21,22 @@ fn main() {
 
             Ok(num) => num,
             Err(_) => {
-                println!("Please type either 1, 2, or 3!");
+                println!("\nPlease type either 1, 2, or 3!\n"); // tbh this is not necessary should get rid of it later
                 continue;
             }
         };
 
         if mode == 1 {
 
-            println!("Converting Fahrenheit -> Celsius\n");
+            println!("\nConverting Fahrenheit -> Celsius\n");
 
-            println!("Enter fahrenheit temperature value to convert to celsius:\n");
+            println!("Enter Fahrenheit temperature value to convert to Celsius:\n");
 
             // Get fahrenheit temp from user input
             let mut input = String::new();
             io::stdin().read_line(&mut input)
                 .expect("Failed to read line...");
             
-            println!("Fahrenheit value entered: {input}");
-
             // Parse string from user input to f64
             let ftemp: f64 = match input.trim().parse() {
                 Ok(num) => num,
@@ -48,22 +46,22 @@ fn main() {
                 }
             };
 
+            println!("\nFahrenheit value entered: {ftemp}°F\n");
+
             let celsius_temperature = fahrenheit_to_celsius(&ftemp);
             println!("[Converted to Celsius]: Temperature is: {celsius_temperature}°C\n");
         }
 
         else if mode == 2 {
-            println!("Converting Celsius -> Farenheit\n");
+            println!("\nConverting Celsius -> Farenheit\n");
 
-            println!("Enter celsius temperature value to convert to fahrenheit:\n");
+            println!("Enter Celsius temperature value to convert to Fahrenheit:\n");
 
             // Get celsius temp from user input
             let mut input = String::new();
             io::stdin().read_line(&mut input)
                 .expect("Failed to read line...");
             
-            println!("Celsius value entered: {input}");
-
             // Parse string from user input to f64
             let ctemp: f64 = match input.trim().parse() {
                 Ok(num) => num,
@@ -73,22 +71,24 @@ fn main() {
                 }
             };
 
+            println!("\nCelsius value entered: {ctemp}°C\n");
+
             let fahrenheit_temperature = celsius_to_fahrenheit(&ctemp);
             println!("[Converted to Fahrenheit]: Temperature is: {fahrenheit_temperature}°F\n");
         }
 
         else if mode == 3 {
-            println!("Exiting...");
+            println!("\nExiting...");
             break;
         }
 
         else {
-            println!("Please choose a valid option (1, 2, or 3)\n");
+            println!("\nPlease choose a valid option (1, 2, or 3)\n");
             continue;
         }
     
 
-        println!("Do you want to perform another conversion? (yes/no)");
+        println!("Do you want to perform another conversion? (yes/no)\n");
 
         let mut answer = String::new();
         io::stdin()
@@ -97,7 +97,7 @@ fn main() {
 
         let answer = answer.trim().to_lowercase();
         if answer != "yes" {
-            println!("Exiting...");
+            println!("\nExiting...");
             break;
         }
     }
